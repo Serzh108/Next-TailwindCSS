@@ -1,0 +1,4 @@
+.commonText {
+  color: red;
+  color: rgb(var(--common-text));
+}

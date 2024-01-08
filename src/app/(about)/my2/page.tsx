@@ -21,7 +21,7 @@ export default function My2() {
     <>
       <div>
         <h1>My page2</h1>
-        <p>Text for My page2</p>
+        <p className="p-2 bg-gray-300">Text for My page2</p>
       </div>
 
       <form action={formHandler}>

@@ -1,4 +1,5 @@
 import MyButton from '@/app/components/MyButton';
+import styles from './my1.module.css';
 
 export default function My1() {
   return (
@@ -8,7 +9,9 @@ export default function My1() {
         <p>Text for My page1</p>
       </div>
       <div style={{ height: '100vh' }} id="test-scroll">
-        <p>My page1 - Text for My page1, second part</p>
+        <p className={styles.commonText}>
+          My page1 - Text for My page1, second part
+        </p>
         <MyButton />
       </div>
     </>
