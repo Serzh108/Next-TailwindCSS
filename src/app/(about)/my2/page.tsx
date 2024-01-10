@@ -1,5 +1,6 @@
 import { getUsers } from '../../../helpers/helpers';
 import SubmitButton from './SubmitButton';
+const testArr = ['first', 'second', 'third'];
 
 export default function My2() {
   const formHandler = async (formData: FormData) => {
@@ -19,14 +20,43 @@ export default function My2() {
 
   return (
     <>
-      <div>
-        <h1>My page2</h1>
-        <p className="p-2 bg-gray-300">Text for My page2</p>
+      <div className="group">
+        <h1>My page2 new</h1>
+        <p className="p-2 bg-gray-300 group-hover:border group-hover:border-sky-300 group-hover:text-white hover:bg-sky-700">
+          Text for My page2 new
+        </p>
+        <p className="p-2 bg-gray-300 hover:ring hover:ring-violet-300">
+          Text for My page2 new 1
+        </p>
+        {/* --- */}
+        <ul>
+          {testArr.map(item => (
+            <li
+              className="w-20 pl-2 py-4 first:pt-1 last:pb-1 text-md font-medium text-slate-900 odd:bg-slate-600 even:bg-slate-300"
+              key={item}>
+              {item}
+            </li>
+          ))}
+        </ul>
       </div>
 
-      <form action={formHandler}>
-        <input type="text" name="nickname" />
-        <input type="password" name="password" />
+      <form action={formHandler} className="m-3">
+        <input
+          type="text"
+          name="nickname"
+          className="bg-fuchsia-200 focus:bg-fuchsia-500 md:placeholder:text-red-500 sm:placeholder:text-green-500"
+          placeholder="nick"
+        />
+        <input
+          type="email"
+          name="email"
+          className="m-4 px-3 py-2 bg-stone-400 border border-stone-600 rounded-lg shadow-lg focus:bg-sky-400  focus:border-sky-700"
+        />
+        <input
+          type="password"
+          name="password"
+          className="m-4 bg-sky-300 focus:bg-sky-700 border-gray-300 focus:border-blue-400"
+        />
         <SubmitButton />
       </form>
     </>
