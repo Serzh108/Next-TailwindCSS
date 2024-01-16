@@ -1,6 +1,7 @@
 import { getUsers } from '../../../helpers/helpers';
 import SubmitButton from './SubmitButton';
 const testArr = ['first', 'second', 'third'];
+const testArr1 = ['aaa', 'bbb', 'ccc', 'ddd', 'eee', 'fff', 'ggg'];
 
 export default function My2() {
   const formHandler = async (formData: FormData) => {
@@ -40,12 +41,15 @@ export default function My2() {
         </ul>
       </div>
 
-      <form action={formHandler} className="m-3">
+      <form
+        action={formHandler}
+        className="m-3 required:[&_input]:border-red-500">
         <input
           type="text"
           name="nickname"
-          className="bg-fuchsia-200 focus:bg-fuchsia-500 md:placeholder:text-red-500 sm:placeholder:text-green-500"
+          className="border bg-fuchsia-200 focus:bg-fuchsia-500 md:placeholder:text-red-500 sm:placeholder:text-green-500"
           placeholder="nick"
+          required
         />
         <input
           type="email"
@@ -55,10 +59,21 @@ export default function My2() {
         <input
           type="password"
           name="password"
-          className="m-4 bg-sky-300 focus:bg-sky-700 border-gray-300 focus:border-blue-400"
+          className="m-4 border bg-sky-300 focus:bg-sky-700 border-gray-300 focus:border-blue-400"
+          required
         />
         <SubmitButton />
       </form>
+
+      <ul className="flex justify-around [&_li]:text-blue-600">
+        {testArr1.map(item => (
+          <li
+            className=" border border-stone-300 py-1 px-4 [&:nth-child(3)]:underline"
+            key={item}>
+            {item}
+          </li>
+        ))}
+      </ul>
     </>
   );
 }
